@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/zenps-ruby.svg)](https://badge.fury.io/rb/zenps-ruby)
 [![Codeship Status for aphilippartd/zenps-ruby](https://app.codeship.com/projects/beb50360-2413-0137-0f16-0e0a32caa97a/status?branch=master)](https://app.codeship.com/projects/330078)
 [![Maintainability](https://api.codeclimate.com/v1/badges/065b707a3ccd884c40d6/maintainability)](https://codeclimate.com/github/aphilippartd/zenps-ruby/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/065b707a3ccd884c40d6/test_coverage)](https://codeclimate.com/github/aphilippartd/zenps-ruby/test_coverage)
