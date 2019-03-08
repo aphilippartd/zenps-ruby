@@ -1,6 +1,8 @@
+[![Codeship Status for aphilippartd/zenps-ruby](https://app.codeship.com/projects/beb50360-2413-0137-0f16-0e0a32caa97a/status?branch=master)](https://app.codeship.com/projects/330078)
+
 # zenps-ruby
 
-
+Wrapper for Zenps API
 
 ## Installation
 ```sh
