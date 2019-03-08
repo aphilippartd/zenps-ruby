@@ -38,13 +38,13 @@ Zenps.configure_with('path/to/your/configuration/file.yml')
 This wrapper allows you to send NPS surveys to your user in batch...
 
 ```ruby
-Zenps::Survey.call([user_1, user_2])
+Zenps::Survey.call([user_1, user_2], event: 'sign_up')
 ```
 
 ...or on a per-user basis
 
 ```ruby
-Zenps::Survey.call(user)
+Zenps::Survey.call(user, event: 'sign_up')
 ```
 
 A user subject can either be:
@@ -60,13 +60,13 @@ A user subject can either be:
 This allows for the gem to be used eg. in a rails application with User models that respond to the email method (and/or locale) as follows
 
 ```ruby
-  Zenps::Survey.call(User.limit(10))
+  Zenps::Survey.call(User.limit(10), event: 'sign_up')
 ```
 
 but also in a more simple way as follows
 
 ```ruby
-Zenps::Survey.call('john.doe@acme.com')
+Zenps::Survey.call('john.doe@acme.com', event: 'sign_up')
 ```
 
 The following options are available on the Survey call method:
