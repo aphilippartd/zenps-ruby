@@ -16,11 +16,11 @@ Juwelier::Tasks.new do |gem|
   gem.name = "zenps-ruby"
   gem.homepage = "http://github.com/aphilippartd/zenps-ruby"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Ruby wrapper for Zenps}
+  gem.description = %Q{Ruby wrapper for Zenps}
   gem.email = "alexis.philippartdefoy@gmail.com"
   gem.authors = ["Alexis Philippart de Foy"]
-
+  gem.files = Dir.glob('lib/**/*.rb')
   # dependencies defined in Gemfile
 end
 Juwelier::RubygemsDotOrgTasks.new
