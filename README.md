@@ -71,9 +71,11 @@ Zenps::Survey.call('john.doe@acme.com')
 
 The following options are available on the Survey call method:
 
-  - locale (String) - Overwrites the user's AND default locale
-  - event (String) - Typically the event triggering the NPS survey
-  - tags (Array) - Tags giving you granularity in your analytics
+| Options | Type            | Mandatory | Description                                     |
+| --------|:---------------:| :--------:|------------------------------------------------:|
+| locale  | String          | false     | Overwrites the user's AND default locale        |
+| event   | String          | true      | Typically the event triggering the NPS survey   |
+| tags    | Array\[String\] | false     | Tags giving you granularity in your analytics   |
 
 Example:
 
