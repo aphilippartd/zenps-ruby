@@ -3,13 +3,13 @@ require 'uri'
 require 'json'
 
 module Zenps
+  # Api client for Zenps
   class Client
-
     def initialize
       check_configuration
     end
 
-    def call(options={})
+    def call(options = {})
       @options = options
       perform_request
       expose_response
@@ -26,7 +26,7 @@ module Zenps
     def perform_request
       request = Net::HTTP::Post.new(uri, header)
       request.body = body
-      @response = Net::HTTP.start(uri.host, uri.port, :use_ssl => true) {|http| http.request request}
+      @response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request request }
     end
 
     def expose_response
@@ -40,7 +40,7 @@ module Zenps
     def body
       {
         to: {
-          email: email,
+          email: email
         },
         locale: locale,
         event: event,
@@ -74,6 +74,7 @@ module Zenps
     def tags
       (options['tags'] || options[:tags] || []).join(', ')
     rescue NoMethodError
+      nil
     end
 
     def end_point
