@@ -1,12 +1,12 @@
 module Zenps
+  # Class for structuring subjects into array of hashes from:
+  #   - (array of) string(s)
+  #   - (array of) hash(es)
+  #   - (array of) object(s)
   class Payload
-    # Returns array of hashes from:
-    #   - (array of) string(s)
-    #   - (array of) hash(es)
-    #   - (array of) object(s)
     def get(subjects)
       @subjects = subjects
-      return payload
+      payload
     end
 
     private
@@ -15,11 +15,11 @@ module Zenps
 
     def payload
       @subjects = [subjects] unless array_but_not_hash?
-      return get_payload
+      build_payload
     end
 
-    def get_payload
-      return subjects.map do |subject|
+    def build_payload
+      subjects.map do |subject|
         {
           email: get_email(subject),
           locale: get_locale(subject)

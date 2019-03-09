@@ -1,11 +1,11 @@
 module Zenps
+  # Takes list of subjects and sends NPS survey to all subjects
   class Survey
-    # Takes list of subjects and sends NPS survey to all subjects
-    def self.call(subjects, options={})
+    def self.call(subjects, options = {})
       new.call(subjects, options)
     end
 
-    def call(subjects, options={})
+    def call(subjects, options = {})
       @subjects = subjects
       @options = options
       perform_requests

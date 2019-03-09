@@ -1,9 +1,8 @@
-
 require 'json'
 require 'spec_helper'
 
 describe Zenps::Payload do
-  let(:subject) {Zenps::Payload.new}
+  let(:subject) { Zenps::Payload.new }
 
   context 'Single input' do
     it 'returns an array of hashes from string input' do
@@ -16,7 +15,7 @@ describe Zenps::Payload do
     end
 
     it 'returns an array of hashes from json input' do
-      input = {email: 'john.doe@acme.com'}
+      input = { email: 'john.doe@acme.com' }
       output = subject.get(input)
       expect(output.class).to eq Array
       expect(output.length).to eq 1
@@ -25,7 +24,7 @@ describe Zenps::Payload do
     end
 
     it 'returns an array of hashes from json input  with locale specified' do
-      input = {email: 'john.doe@acme.com', locale: 'nl'}
+      input = { email: 'john.doe@acme.com', locale: 'nl' }
       output = subject.get(input)
       expect(output.class).to eq Array
       expect(output.length).to eq 1
@@ -34,7 +33,7 @@ describe Zenps::Payload do
     end
 
     it 'returns an array of hashes from ruby object input ' do
-      input = JSON.parse({email: 'john.doe@acme.com'}.to_json, object_class: OpenStruct)
+      input = JSON.parse({ email: 'john.doe@acme.com' }.to_json, object_class: OpenStruct)
       output = subject.get(input)
       expect(output.class).to eq Array
       expect(output.length).to eq 1
@@ -43,7 +42,7 @@ describe Zenps::Payload do
     end
 
     it 'returns an array of hashes from ruby object input with locale specified' do
-      input = JSON.parse({email: 'john.doe@acme.com', locale: 'nl'}.to_json, object_class: OpenStruct)
+      input = JSON.parse({ email: 'john.doe@acme.com', locale: 'nl' }.to_json, object_class: OpenStruct)
       output = subject.get(input)
       expect(output.class).to eq Array
       expect(output.length).to eq 1
@@ -65,7 +64,7 @@ describe Zenps::Payload do
     end
 
     it 'returns an array of emails from array of jsons input' do
-      input = [{email: 'john.doe.1@acme.com'}, {email: 'john.doe.2@acme.com'}]
+      input = [{ email: 'john.doe.1@acme.com' }, { email: 'john.doe.2@acme.com' }]
       output = subject.get(input)
       expect(output.class).to eq Array
       expect(output.length).to eq 2
@@ -76,7 +75,7 @@ describe Zenps::Payload do
     end
 
     it 'returns an array of emails from array of jsons input' do
-      input = [{email: 'john.doe.1@acme.com', locale: 'nl'}, {email: 'john.doe.2@acme.com', locale: 'fr'}]
+      input = [{ email: 'john.doe.1@acme.com', locale: 'nl' }, { email: 'john.doe.2@acme.com', locale: 'fr' }]
       output = subject.get(input)
       expect(output.class).to eq Array
       expect(output.length).to eq 2
@@ -88,8 +87,8 @@ describe Zenps::Payload do
 
     it 'returns an array of emails from array of ruby objects input' do
       input = [
-        JSON.parse({email: 'john.doe.1@acme.com', locale: 'nl'}.to_json, object_class: OpenStruct),
-        JSON.parse({email: 'john.doe.2@acme.com', locale: 'fr'}.to_json, object_class: OpenStruct)
+        JSON.parse({ email: 'john.doe.1@acme.com', locale: 'nl' }.to_json, object_class: OpenStruct),
+        JSON.parse({ email: 'john.doe.2@acme.com', locale: 'fr' }.to_json, object_class: OpenStruct)
       ]
       output = subject.get(input)
       expect(output.class).to eq Array

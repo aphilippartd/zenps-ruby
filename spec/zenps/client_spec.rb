@@ -1,7 +1,6 @@
-
 require 'spec_helper'
 describe Zenps::Client do
-  let(:subject) {Zenps::Client.new}
+  let(:subject) { Zenps::Client.new }
 
   it 'raises KeyMissingError when zenps key has not been configured' do
     expect {
