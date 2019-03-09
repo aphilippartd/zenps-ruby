@@ -1,7 +1,6 @@
-
 require 'spec_helper'
 describe Zenps::Survey do
-  let(:subject) {Zenps::Survey}
+  let(:subject) { Zenps::Survey }
 
   it 'performs request for mixed inputs' do
     expect_any_instance_of(Zenps::Client).to receive(:call).with(hash_including(email: 'john.doe.1@acme.com'))
@@ -12,15 +11,14 @@ describe Zenps::Survey do
 
     input = [
       'john.doe.1@acme.com',
-      {email: 'john.doe.2@acme.com', locale: 'nl'},
-      JSON.parse({email: 'john.doe.3@acme.com', locale: 'fr'}.to_json, object_class: OpenStruct)
+      { email: 'john.doe.2@acme.com', locale: 'nl' },
+      JSON.parse({ email: 'john.doe.3@acme.com', locale: 'fr' }.to_json, object_class: OpenStruct)
     ]
 
     subject.call(input)
   end
 
   it 'performs request for with options' do
-
     body = {
       to: {
         email: 'john.doe.1@acme.com'
@@ -36,6 +34,6 @@ describe Zenps::Survey do
 
     input = ['john.doe.1@acme.com']
 
-    subject.call(input, locale: 'nl', event: 'sign_up', tags: ['man', 'facebook'])
+    subject.call(input, locale: 'nl', event: 'sign_up', tags: %w[man facebook])
   end
 end
