@@ -31,21 +31,10 @@ module Zenps
 
     def expose_response
       {
-        email: email,
+        email: get_attribute(:email),
         code: response.code.to_i,
         body: response.body
       }
-    end
-
-    def body
-      {
-        to: {
-          email: email
-        },
-        locale: locale,
-        event: event,
-        tags: tags
-      }.compact.to_json
     end
 
     def uri
@@ -59,20 +48,29 @@ module Zenps
       }
     end
 
-    def email
-      options[:email]
+    def body
+      {
+        to: to,
+        locale: get_attribute(:locale, default: 'en'),
+        event: get_attribute(:event),
+        tags: tags
+      }.compact.to_json
     end
 
-    def locale
-      options['locale'] || options[:locale] || 'en'
+    def to
+      {
+        email: get_attribute(:email),
+        first_name: get_attribute(:first_name),
+        last_name: get_attribute(:last_name)
+      }.compact
     end
 
-    def event
-      options['event'] || options[:event]
+    def get_attribute(attribute, params = {})
+      options[attribute.to_s] || options[attribute] || params[:default]
     end
 
     def tags
-      (options['tags'] || options[:tags] || []).join(', ')
+      get_attribute('tags', default: []).join(', ')
     rescue NoMethodError
       nil
     end

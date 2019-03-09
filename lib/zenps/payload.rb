@@ -22,21 +22,21 @@ module Zenps
       subjects.map do |subject|
         {
           email: get_email(subject),
-          locale: get_locale(subject)
+          first_name: get_attribute(subject, 'first_name'),
+          last_name: get_attribute(subject, 'last_name'),
+          locale: get_attribute(subject, 'locale')
         }.compact
       end
     end
 
-    def get_email(object)
-      return object if object.class == String
-      return object[:email] || object['email'] if object.class == Hash
-      return object.email if object.respond_to? :email
+    def get_email(subject)
+      subject.class == String ? subject : get_attribute(subject, 'email')
     end
 
-    def get_locale(object)
-      return if object.class == String
-      return object[:locale] || object['locale'] if object.class == Hash
-      return object.locale if object.respond_to? :locale
+    def get_attribute(subject, attribute)
+      return if subject.class == String
+      return subject[attribute] || subject[attribute.to_sym] if subject.class == Hash
+      return subject.send(attribute) if subject.respond_to?(attribute)
     end
 
     def array_but_not_hash?
