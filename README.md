@@ -52,10 +52,14 @@ A user subject can either be:
   - A string (email of user to be surveyed)
   - A hash containing the following keys:
     - email (compulsory)
-    - locale (optional --> defaults to `en`)
+    - first_name (optional)
+    - last_name (optional)
+    - locale (optional --> defaults to `en` unless overwritten in general call)
   - An object that responds to
     - email method (compulsory)
-    - locale (optional --> defaults to `en`)
+    - first_name method (optional)
+    - last_name method (optional)
+    - locale (optional --> defaults to `en` unless overwritten in general call)
 
 This allows for the gem to be used eg. in a rails application with User models that respond to the email method (and/or locale) as follows
 
