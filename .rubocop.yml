@@ -5,3 +5,19 @@ AllCops:
 
 Metrics/LineLength:
   Max: 128
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - describe
+    - it
+    - context
+
+Style/BlockDelimiters:
+  IgnoredMethods:
+    - expect
+
+Naming/FileName:
+  Exclude:
+    - 'lib/zenps-ruby.rb'
+    - 'spec/zenps-ruby_spec.rb'
+
