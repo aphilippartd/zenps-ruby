@@ -13,5 +13,5 @@ group :development do
   gem "juwelier", "~> 2.1.0"
   gem "simplecov", ">= 0"
   gem "simplecov-console", ">= 0"
-  gem 'rubocop', require: false
+  gem "rubocop", require: false
 end

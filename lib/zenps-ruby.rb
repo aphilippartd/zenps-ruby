@@ -1,8 +1,8 @@
 require 'yaml'
 require 'logger'
-require 'zenps/client.rb'
-require 'zenps/payload.rb'
-require 'zenps/survey.rb'
+require_relative 'zenps/client.rb'
+require_relative 'zenps/payload.rb'
+require_relative 'zenps/survey.rb'
 # Zenps ruby wrapper
 module Zenps
   # Configuration defaults
