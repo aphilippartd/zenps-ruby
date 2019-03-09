@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Alexis Philippart de Foy".freeze]
-  s.date = "2019-03-08"
+  s.date = "2019-03-09"
   s.description = "Ruby wrapper for Zenps".freeze
   s.email = "alexis.philippartdefoy@gmail.com".freeze
   s.extra_rdoc_files = [
@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<juwelier>.freeze, ["~> 2.1.0"])
       s.add_development_dependency(%q<simplecov>.freeze, [">= 0"])
       s.add_development_dependency(%q<simplecov-console>.freeze, [">= 0"])
+      s.add_development_dependency(%q<rubocop>.freeze, [">= 0"])
     else
       s.add_dependency(%q<rspec>.freeze, ["~> 3.5.0"])
       s.add_dependency(%q<webmock>.freeze, ["~> 3.5.1"])
@@ -49,6 +50,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<juwelier>.freeze, ["~> 2.1.0"])
       s.add_dependency(%q<simplecov>.freeze, [">= 0"])
       s.add_dependency(%q<simplecov-console>.freeze, [">= 0"])
+      s.add_dependency(%q<rubocop>.freeze, [">= 0"])
     end
   else
     s.add_dependency(%q<rspec>.freeze, ["~> 3.5.0"])
@@ -58,6 +60,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<juwelier>.freeze, ["~> 2.1.0"])
     s.add_dependency(%q<simplecov>.freeze, [">= 0"])
     s.add_dependency(%q<simplecov-console>.freeze, [">= 0"])
+    s.add_dependency(%q<rubocop>.freeze, [">= 0"])
   end
 end
 
